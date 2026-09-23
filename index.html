@@ -18,7 +18,7 @@
     --ink: #2c2620;
     --ink-soft: #5a4f45;
     --ink-muted: #8a7e74;
-
+ 
     /* Category colors */
     --cat-accountancy: #2d6a4f;
     --cat-axis: #8b5e3c;
@@ -27,15 +27,15 @@
     --cat-personal: #7b5ea7;
     --cat-journal: #9c6b7a;
     --cat-reflections: #5b7fa6;
-
+ 
     --shadow-soft: 0 4px 24px rgba(80,60,40,0.08);
     --shadow-card: 0 2px 12px rgba(80,60,40,0.10);
     --radius: 16px;
     --radius-sm: 8px;
   }
-
+ 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
+ 
   body {
     font-family: 'Jost', sans-serif;
     background: var(--cream);
@@ -43,14 +43,14 @@
     min-height: 100vh;
     font-weight: 300;
   }
-
+ 
   /* SIDEBAR */
   .app {
     display: grid;
     grid-template-columns: 280px 1fr;
     min-height: 100vh;
   }
-
+ 
   .sidebar {
     background: #f2ece0;
     color: var(--ink);
@@ -64,7 +64,7 @@
     overflow-y: auto;
     border-right: 1px solid var(--beige-dark);
   }
-
+ 
   .sidebar-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 22px;
@@ -83,7 +83,7 @@
     color: var(--ink-muted);
     margin-bottom: 4px;
   }
-
+ 
   /* Mini calendar in sidebar */
   .mini-cal {
     background: white;
@@ -125,7 +125,7 @@
   .mini-day.selected { background: var(--beige-dark); color: var(--ink); }
   .mini-day.other-month { color: var(--beige-deeper); }
   .mini-day.has-event::after { content: ''; display: block; width: 3px; height: 3px; background: var(--emerald); border-radius: 50%; margin: 1px auto 0; }
-
+ 
   /* Categories */
   .categories-section { flex: 1; }
   .categories-label {
@@ -156,7 +156,7 @@
   .cat-sub { padding-left: 20px; }
   .cat-sub .cat-dot { width: 7px; height: 7px; }
   .cat-sub .cat-name { font-size: 12px; color: var(--ink-muted); }
-
+ 
   /* Add event btn */
   .add-btn {
     background: var(--emerald);
@@ -176,14 +176,14 @@
     justify-content: center;
   }
   .add-btn:hover { background: var(--emerald-light); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(74,124,89,0.25); }
-
+ 
   /* MAIN */
   .main {
     display: flex;
     flex-direction: column;
     background: var(--cream);
   }
-
+ 
   /* Header */
   .main-header {
     padding: 28px 40px 20px;
@@ -196,7 +196,7 @@
     top: 0;
     z-index: 10;
   }
-
+ 
   .header-nav {
     display: flex;
     align-items: center;
@@ -228,7 +228,7 @@
     transition: all 0.2s;
   }
   .today-btn:hover { background: var(--emerald-light); }
-
+ 
   .current-period {
     font-family: 'Cormorant Garamond', serif;
     font-size: 28px;
@@ -236,7 +236,7 @@
     color: var(--ink);
     letter-spacing: 0.02em;
   }
-
+ 
   .view-toggle {
     display: flex;
     gap: 4px;
@@ -259,10 +259,10 @@
     transition: all 0.2s;
   }
   .view-btn.active { background: white; color: var(--emerald); font-weight: 500; box-shadow: var(--shadow-card); }
-
+ 
   /* MONTH VIEW */
   .month-view { flex: 1; padding: 24px 40px; }
-
+ 
   .month-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -272,7 +272,7 @@
     overflow: hidden;
     box-shadow: var(--shadow-soft);
   }
-
+ 
   .day-header {
     background: white;
     text-align: center;
@@ -283,7 +283,7 @@
     text-transform: uppercase;
     color: var(--ink-muted);
   }
-
+ 
   .day-cell {
     background: white;
     min-height: 110px;
@@ -298,7 +298,7 @@
   .day-cell.other-month { background: #fafaf8; }
   .day-cell.other-month .day-number { color: var(--beige-deeper); }
   .day-cell.selected { background: var(--emerald-pale); }
-
+ 
   .day-number {
     font-size: 13px;
     font-weight: 400;
@@ -312,7 +312,7 @@
     margin-bottom: 6px;
     transition: all 0.2s;
   }
-
+ 
   .event-pill {
     font-size: 11px;
     font-weight: 400;
@@ -327,10 +327,10 @@
     color: white;
   }
   .event-pill:hover { opacity: 0.85; }
-
+ 
   /* WEEK VIEW */
   .week-view { flex: 1; padding: 24px 40px; overflow: auto; }
-
+ 
   .week-grid {
     display: grid;
     grid-template-columns: 60px repeat(7, 1fr);
@@ -340,7 +340,7 @@
     background: var(--beige-dark);
     gap: 1px;
   }
-
+ 
   .week-day-header {
     background: white;
     padding: 12px 8px;
@@ -367,7 +367,7 @@
     margin: 2px auto 0;
     font-size: 18px;
   }
-
+ 
   .time-col { background: white; }
   .time-slot {
     height: 50px;
@@ -381,7 +381,7 @@
     border-top: 1px solid var(--beige-dark);
   }
   .time-slot:first-child { border-top: none; }
-
+ 
   .week-day-col {
     background: white;
     position: relative;
@@ -407,7 +407,7 @@
   .week-event:hover { opacity: 0.85; }
   .week-event-title { font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .week-event-time { font-size: 10px; opacity: 0.85; }
-
+ 
   /* MODAL */
   .modal-overlay {
     display: none;
@@ -420,7 +420,7 @@
     justify-content: center;
   }
   .modal-overlay.open { display: flex; }
-
+ 
   .modal {
     background: white;
     border-radius: var(--radius);
@@ -434,7 +434,7 @@
     from { opacity: 0; transform: translateY(-16px) scale(0.97); }
     to { opacity: 1; transform: none; }
   }
-
+ 
   .modal-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 26px;
@@ -449,7 +449,7 @@
     font-size: 20px; cursor: pointer;
     color: var(--ink-muted);
   }
-
+ 
   .form-group { margin-bottom: 18px; }
   .form-label {
     display: block;
@@ -476,9 +476,9 @@
     border-color: var(--emerald-light);
   }
   .form-textarea { min-height: 80px; resize: vertical; }
-
+ 
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-
+ 
   .save-btn {
     width: 100%;
     background: var(--emerald);
@@ -496,7 +496,7 @@
     margin-top: 8px;
   }
   .save-btn:hover { background: var(--emerald-light); }
-
+ 
   /* EVENT DETAIL MODAL */
   .detail-cat-badge {
     display: inline-flex;
@@ -557,7 +557,7 @@
   .detail-btn:hover { background: var(--beige); }
   .detail-btn.primary { background: var(--emerald); color: white; border-color: var(--emerald); }
   .detail-btn.primary:hover { background: var(--emerald-light); }
-
+ 
   /* JOURNAL PANEL */
   .journal-panel {
     display: none;
@@ -650,7 +650,7 @@
   }
   .journal-save:hover { background: var(--emerald-light); }
   .journal-word-count { font-size: 11px; color: var(--ink-muted); }
-
+ 
   /* TOAST */
   .toast {
     position: fixed;
@@ -668,7 +668,7 @@
     pointer-events: none;
   }
   .toast.show { transform: translateX(-50%) translateY(0); }
-
+ 
   /* Scrollbar */
   ::-webkit-scrollbar { width: 6px; height: 6px; }
   ::-webkit-scrollbar-track { background: transparent; }
@@ -697,7 +697,7 @@
 <script src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
 </head>
 <body>
-
+ 
 <div class="app">
   <!-- SIDEBAR -->
   <aside class="sidebar">
@@ -707,7 +707,7 @@
         Emiliei
       </div>
     </div>
-
+ 
     <!-- Mini Calendar -->
     <div class="mini-cal">
       <div class="mini-cal-header">
@@ -725,11 +725,11 @@
         <div class="mini-day-name">D</div>
       </div>
     </div>
-
+ 
     <!-- Categories -->
     <div class="categories-section">
       <div class="categories-label">Categorii</div>
-
+ 
       <div class="category-item active" onclick="filterCat('all')">
         <div class="cat-dot" style="background:var(--emerald-light)"></div>
         <span class="cat-name">Toate</span>
@@ -767,7 +767,7 @@
         <span class="cat-name">Google Calendar</span>
       </div>
     </div>
-
+ 
     <button class="auth-btn" id="authBtn" onclick="handleAuthClick()" style="display:none;width:100%;margin-bottom:8px;justify-content:center;align-items:center;gap:8px;padding:10px 16px;border-radius:8px;font-family:'Jost',sans-serif;font-size:12px;font-weight:500;cursor:pointer;border:1px solid #ddd;background:white;color:#444;">
       <img src="https://www.google.com/favicon.ico" style="width:14px;height:14px"> Conectează Google Calendar
     </button>
@@ -775,7 +775,7 @@
       <span style="font-size:18px">+</span> Adaugă eveniment
     </button>
   </aside>
-
+ 
   <!-- MAIN -->
   <main class="main">
     <header class="main-header">
@@ -789,13 +789,13 @@
         <button class="view-btn active" onclick="setView('month', this)">Lunar</button>
         <button class="view-btn" onclick="setView('week', this)">Săptămânal</button>
       </div>
-
+ 
     </header>
-
+ 
     <div id="calendarBody"></div>
   </main>
 </div>
-
+ 
 <!-- ADD EVENT MODAL -->
 <div class="modal-overlay" id="addModal">
   <div class="modal" style="position:relative">
@@ -842,7 +842,7 @@
     <button class="save-btn" onclick="saveEvent()">Salvează evenimentul</button>
   </div>
 </div>
-
+ 
 <!-- EVENT DETAIL MODAL -->
 <div class="modal-overlay" id="detailModal">
   <div class="modal" style="position:relative">
@@ -850,7 +850,7 @@
     <div id="detailContent"></div>
   </div>
 </div>
-
+ 
 <!-- JOURNAL PANEL -->
 <div class="journal-panel" id="journalPanel">
   <div class="journal-header">
@@ -872,16 +872,16 @@
     <button class="journal-save" onclick="saveJournal()">Salvează</button>
   </div>
 </div>
-
+ 
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
-
+ 
 <script>
 // ============ DATA ============
 const MONTHS_RO = ['Ianuarie','Februarie','Martie','Aprilie','Mai','Iunie','Iulie','August','Septembrie','Octombrie','Noiembrie','Decembrie'];
 const DAYS_RO = ['Lun','Mar','Mie','Joi','Vin','Sâm','Dum'];
 const DAYS_FULL = ['Luni','Marți','Miercuri','Joi','Vineri','Sâmbătă','Duminică'];
-
+ 
 const CAT_COLORS = {
   accountancy: '#2d6a4f',
   axis: '#8b5e3c',
@@ -892,7 +892,7 @@ const CAT_COLORS = {
   reflections: '#5b7fa6',
   google: '#5b8fb9'
 };
-
+ 
 const CAT_NAMES = {
   accountancy: 'Emilia Accountancy',
   axis: 'Axis',
@@ -901,7 +901,7 @@ const CAT_NAMES = {
   personal: 'Timp Personal',
   google: 'Google Calendar'
 };
-
+ 
 // Google Calendar API
 const CLIENT_ID = '523237944139-73v5fpmdpopri1ltqjrrk9aag0k4tut7.apps.googleusercontent.com';
 const SCOPES = 'https://www.googleapis.com/auth/calendar.readonly';
@@ -910,7 +910,7 @@ let tokenClient;
 let gapiInited = false;
 let gisInited = false;
 let isSignedIn = false;
-
+ 
 function gapiLoaded() {
   gapi.load('client', async () => {
     await gapi.client.init({ discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'] });
@@ -918,7 +918,7 @@ function gapiLoaded() {
     maybeEnableButtons();
   });
 }
-
+ 
 function gisLoaded() {
   tokenClient = google.accounts.oauth2.initTokenClient({
     client_id: CLIENT_ID,
@@ -933,13 +933,13 @@ function gisLoaded() {
   gisInited = true;
   maybeEnableButtons();
 }
-
+ 
 function maybeEnableButtons() {
   if (gapiInited && gisInited) {
     document.getElementById('authBtn').style.display = 'flex';
   }
 }
-
+ 
 function handleAuthClick() {
   if (!isSignedIn) {
     tokenClient.requestAccessToken({ prompt: 'consent' });
@@ -954,7 +954,7 @@ function handleAuthClick() {
     });
   }
 }
-
+ 
 function updateAuthUI() {
   const btn = document.getElementById('authBtn');
   if (isSignedIn) {
@@ -969,7 +969,7 @@ function updateAuthUI() {
     btn.style.border = '1px solid #ddd';
   }
 }
-
+ 
 function gCalDateToStr(dtStr) {
   if (!dtStr) return null;
   return dtStr.substring(0, 10);
@@ -979,18 +979,18 @@ function gCalTimeToStr(dtStr) {
   const d = new Date(dtStr);
   return `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
 }
-
+ 
 async function loadAllCalendars() {
   try {
     showToast('Se încarcă evenimentele...');
     const calList = await gapi.client.calendar.calendarList.list();
     const cals = calList.result.items || [];
     googleEvents = [];
-
+ 
     const now = new Date();
     const timeMin = new Date(now.getFullYear(), now.getMonth() - 2, 1).toISOString();
     const timeMax = new Date(now.getFullYear(), now.getMonth() + 4, 0).toISOString();
-
+ 
     for (const cal of cals) {
       try {
         const evResp = await gapi.client.calendar.events.list({
@@ -1027,7 +1027,7 @@ async function loadAllCalendars() {
         });
       } catch(e) { /* skip inaccessible calendar */ }
     }
-
+ 
     renderCalendar();
     renderMini();
     showToast(`✓ ${googleEvents.length} evenimente încărcate`);
@@ -1036,7 +1036,7 @@ async function loadAllCalendars() {
     console.error(e);
   }
 }
-
+ 
 let userEvents = JSON.parse(localStorage.getItem('emilia_events') || '[]');
 let journalData = JSON.parse(localStorage.getItem('emilia_journal') || '{}');
 let activeFilter = 'all';
@@ -1044,7 +1044,7 @@ let currentView = 'month';
 let currentDate = new Date(2026, 5, 7); // June 2026
 let selectedDate = new Date(2026, 5, 7);
 let currentJournalTab = 'notes';
-
+ 
 // ============ UTILS ============
 function dateStr(d) {
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
@@ -1062,35 +1062,35 @@ function getEventsForDay(dateStr) {
     return e.start <= dateStr && e.end >= dateStr;
   });
 }
-
+ 
 function showToast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2800);
 }
-
+ 
 // ============ MINI CALENDAR ============
 let miniDate = new Date(currentDate);
-
+ 
 function renderMini() {
   const year = miniDate.getFullYear();
   const month = miniDate.getMonth();
   document.getElementById('miniTitle').textContent = `${MONTHS_RO[month].slice(0,3)} ${year}`;
-
+ 
   const grid = document.getElementById('miniGrid');
   // Remove old day cells (keep day name headers)
   const kids = Array.from(grid.children);
   kids.slice(7).forEach(k => k.remove());
-
+ 
   const first = new Date(year, month, 1);
   let startDow = first.getDay(); // 0=Sun
   startDow = startDow === 0 ? 6 : startDow - 1; // Mon=0
-
+ 
   const today = new Date();
   const todayStr = dateStr(today);
   const allEvDates = new Set(getAllEvents().map(e => e.start));
-
+ 
   for (let i = 0; i < startDow; i++) {
     const prev = new Date(year, month, -startDow + i + 1);
     const d = document.createElement('div');
@@ -1098,7 +1098,7 @@ function renderMini() {
     d.textContent = prev.getDate();
     grid.appendChild(d);
   }
-
+ 
   const daysInMonth = new Date(year, month+1, 0).getDate();
   for (let i = 1; i <= daysInMonth; i++) {
     const d = document.createElement('div');
@@ -1110,10 +1110,10 @@ function renderMini() {
     grid.appendChild(d);
   }
 }
-
+ 
 document.getElementById('miniPrev').onclick = () => { miniDate.setMonth(miniDate.getMonth()-1); renderMini(); };
 document.getElementById('miniNext').onclick = () => { miniDate.setMonth(miniDate.getMonth()+1); renderMini(); };
-
+ 
 // ============ MAIN CALENDAR ============
 function setView(v, btn) {
   currentView = v;
@@ -1121,7 +1121,7 @@ function setView(v, btn) {
   btn.classList.add('active');
   renderCalendar();
 }
-
+ 
 function goToday() {
   currentDate = new Date();
   selectedDate = new Date();
@@ -1129,12 +1129,12 @@ function goToday() {
   renderMini();
   renderCalendar();
 }
-
+ 
 function renderCalendar() {
   if (currentView === 'month') renderMonth();
   else renderWeek();
 }
-
+ 
 // MONTH VIEW
 function renderMonth() {
   const year = currentDate.getFullYear();
@@ -1142,20 +1142,20 @@ function renderMonth() {
   document.getElementById('currentPeriod').textContent = `${MONTHS_RO[month]} ${year}`;
   document.getElementById('prevBtn').onclick = () => { currentDate.setMonth(month-1); renderCalendar(); };
   document.getElementById('nextBtn').onclick = () => { currentDate.setMonth(month+1); renderCalendar(); };
-
+ 
   const body = document.getElementById('calendarBody');
   body.className = 'month-view';
-
+ 
   let html = '<div class="month-grid">';
   DAYS_RO.forEach(d => { html += `<div class="day-header">${d}</div>`; });
-
+ 
   const first = new Date(year, month, 1);
   let startDow = first.getDay();
   startDow = startDow === 0 ? 6 : startDow - 1;
   const daysInMonth = new Date(year, month+1, 0).getDate();
   const todayStr = dateStr(new Date());
   const selectedStr = dateStr(selectedDate);
-
+ 
   // Prev month days
   const prevDays = new Date(year, month, 0).getDate();
   for (let i = startDow - 1; i >= 0; i--) {
@@ -1163,13 +1163,13 @@ function renderMonth() {
     const ds = `${year}-${String(month).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
     html += `<div class="day-cell other-month"><div class="day-number">${day}</div></div>`;
   }
-
+ 
   for (let d = 1; d <= daysInMonth; d++) {
     const ds = `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
     const isToday = ds === todayStr;
     const isSel = ds === selectedStr;
     const evs = getEventsForDay(ds);
-
+ 
     html += `<div class="day-cell${isToday?' today':''}${isSel?' selected':''}" onclick="selectDay('${ds}')">`;
     html += `<div class="day-number">${d}</div>`;
     evs.slice(0, 3).forEach(e => {
@@ -1179,40 +1179,40 @@ function renderMonth() {
     if (evs.length > 3) html += `<div style="font-size:10px;color:var(--ink-muted);padding:1px 4px">+${evs.length-3} mai multe</div>`;
     html += '</div>';
   }
-
+ 
   // Next month
   const totalCells = startDow + daysInMonth;
   const remaining = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
   for (let d = 1; d <= remaining; d++) {
     html += `<div class="day-cell other-month"><div class="day-number">${d}</div></div>`;
   }
-
+ 
   html += '</div>';
   body.innerHTML = html;
 }
-
+ 
 function selectDay(ds) {
   selectedDate = parseDate(ds);
   renderCalendar();
 }
-
+ 
 // WEEK VIEW
 function renderWeek() {
   const monday = new Date(currentDate);
   const dow = monday.getDay();
   const diff = dow === 0 ? -6 : 1 - dow;
   monday.setDate(monday.getDate() + diff);
-
+ 
   const sunday = new Date(monday);
   sunday.setDate(sunday.getDate() + 6);
-
+ 
   const mStr = `${monday.getDate()} ${MONTHS_RO[monday.getMonth()].slice(0,3)}`;
   const sStr = `${sunday.getDate()} ${MONTHS_RO[sunday.getMonth()].slice(0,3)} ${sunday.getFullYear()}`;
   document.getElementById('currentPeriod').textContent = `${mStr} – ${sStr}`;
-
+ 
   document.getElementById('prevBtn').onclick = () => { currentDate.setDate(currentDate.getDate()-7); renderCalendar(); };
   document.getElementById('nextBtn').onclick = () => { currentDate.setDate(currentDate.getDate()+7); renderCalendar(); };
-
+ 
   const todayStr = dateStr(new Date());
   const days = [];
   for (let i = 0; i < 7; i++) {
@@ -1220,17 +1220,17 @@ function renderWeek() {
     d.setDate(d.getDate() + i);
     days.push(d);
   }
-
+ 
   const body = document.getElementById('calendarBody');
   body.className = 'week-view';
-
+ 
   const hours = Array.from({length:24}, (_,i) => i);
-
+ 
   let html = '<div class="week-grid">';
-
+ 
   // Corner
   html += '<div class="day-header time-col" style="background:white"></div>';
-
+ 
   // Day headers
   days.forEach((d, i) => {
     const ds = dateStr(d);
@@ -1240,7 +1240,7 @@ function renderWeek() {
       : `<div class="week-day-num">${d.getDate()}</div>`;
     html += `<div class="week-day-header"><div class="week-day-name">${DAYS_RO[i]}</div>${numHtml}</div>`;
   });
-
+ 
   // Time slots
   hours.forEach(h => {
     const label = h === 0 ? '' : `${String(h).padStart(2,'0')}:00`;
@@ -1249,7 +1249,7 @@ function renderWeek() {
       if (h === 0) return; // handled separately
     });
   });
-
+ 
   // Day columns with events
   days.forEach((d, di) => {
     const ds = dateStr(d);
@@ -1271,11 +1271,11 @@ function renderWeek() {
     });
     html += '</div>';
   });
-
+ 
   html += '</div>';
   body.innerHTML = html;
 }
-
+ 
 // ============ MODALS ============
 function openAddModal() {
   const today = dateStr(new Date());
@@ -1285,11 +1285,11 @@ function openAddModal() {
   document.getElementById('evDesc').value = '';
   document.getElementById('addModal').classList.add('open');
 }
-
+ 
 function closeModal(id) {
   document.getElementById(id).classList.remove('open');
 }
-
+ 
 function saveEvent() {
   const title = document.getElementById('evTitle').value.trim();
   if (!title) { showToast('Te rog adaugă un titlu!'); return; }
@@ -1311,7 +1311,7 @@ function saveEvent() {
   renderMini();
   showToast('✓ Eveniment salvat');
 }
-
+ 
 function showDetail(e, id) {
   e.stopPropagation();
   const all = getAllEvents();
@@ -1339,7 +1339,7 @@ function showDetail(e, id) {
   document.getElementById('detailContent').innerHTML = html;
   document.getElementById('detailModal').classList.add('open');
 }
-
+ 
 function deleteEvent(id) {
   userEvents = userEvents.filter(e => e.id !== id);
   localStorage.setItem('emilia_events', JSON.stringify(userEvents));
@@ -1347,12 +1347,12 @@ function deleteEvent(id) {
   renderCalendar();
   showToast('Eveniment șters');
 }
-
+ 
 // Close on overlay click
 document.querySelectorAll('.modal-overlay').forEach(m => {
   m.addEventListener('click', function(e) { if (e.target === this) this.classList.remove('open'); });
 });
-
+ 
 // ============ FILTER ============
 function filterCat(cat) {
   activeFilter = cat;
@@ -1360,7 +1360,7 @@ function filterCat(cat) {
   event.currentTarget.classList.add('active');
   renderCalendar();
 }
-
+ 
 // ============ JOURNAL ============
 function openJournal(tab) {
   currentJournalTab = tab;
@@ -1370,54 +1370,55 @@ function openJournal(tab) {
   const today = new Date();
   document.getElementById('journalPanelDate').textContent = `${today.getDate()} ${MONTHS_RO[today.getMonth()]} ${today.getFullYear()}`;
 }
-
+ 
 function closeJournal() {
   document.getElementById('journalPanel').classList.remove('open');
 }
-
+ 
 function switchTab(tab) {
   saveJournalSilent();
   currentJournalTab = tab;
   updateJournalTab();
 }
-
+ 
 function updateJournalTab() {
   document.getElementById('tab-notes').classList.toggle('active', currentJournalTab === 'notes');
   document.getElementById('tab-reflections').classList.toggle('active', currentJournalTab === 'reflections');
   document.getElementById('journalPanelTitle').textContent = currentJournalTab === 'notes' ? 'Notițe zilnice' : 'Reflecții';
-
+ 
   const key = `${dateStr(new Date())}_${currentJournalTab}`;
   const text = journalData[key] || '';
   document.getElementById('journalText').value = text;
   updateWordCount();
-
+ 
   document.getElementById('journalText').placeholder = currentJournalTab === 'notes'
     ? 'Ce s-a întâmplat azi? Ce ai realizat? Ce ai de făcut?'
     : 'Ce simți? Ce ai observat? Ce vrei să înțelegi mai bine?';
 }
-
+ 
 function updateWordCount() {
   const text = document.getElementById('journalText').value;
   const words = text.trim() ? text.trim().split(/\s+/).length : 0;
   document.getElementById('wordCount').textContent = `${words} cuvinte`;
 }
-
+ 
 document.getElementById('journalText').addEventListener('input', updateWordCount);
-
+ 
 function saveJournalSilent() {
   const key = `${dateStr(new Date())}_${currentJournalTab}`;
   journalData[key] = document.getElementById('journalText').value;
   localStorage.setItem('emilia_journal', JSON.stringify(journalData));
 }
-
+ 
 function saveJournal() {
   saveJournalSilent();
   showToast('✓ Salvat');
 }
-
+ 
 // ============ INIT ============
 renderMini();
 renderCalendar();
 </script>
 </body>
 </html>
+ 
