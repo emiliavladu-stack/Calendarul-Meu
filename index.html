@@ -977,7 +977,7 @@ function gCalDateToStr(dtStr) {
 function gCalTimeToStr(dtStr) {
   if (!dtStr || dtStr.length === 10) return null;
   const d = new Date(dtStr);
-  return ⁠ ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')} ⁠;
+  return `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
 }
 
 async function loadAllCalendars() {
@@ -1030,7 +1030,7 @@ async function loadAllCalendars() {
 
     renderCalendar();
     renderMini();
-    showToast(⁠ ✓ ${googleEvents.length} evenimente încărcate ⁠);
+    showToast(`✓ ${googleEvents.length} evenimente încărcate`);
   } catch(e) {
     showToast('Eroare la încărcarea evenimentelor');
     console.error(e);
@@ -1047,7 +1047,7 @@ let currentJournalTab = 'notes';
 
 // ============ UTILS ============
 function dateStr(d) {
-  return ⁠ ${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')} ⁠;
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 }
 function parseDate(s) {
   const [y,m,d] = s.split('-').map(Number);
@@ -1076,7 +1076,7 @@ let miniDate = new Date(currentDate);
 function renderMini() {
   const year = miniDate.getFullYear();
   const month = miniDate.getMonth();
-  document.getElementById('miniTitle').textContent = ⁠ ${MONTHS_RO[month].slice(0,3)} ${year} ⁠;
+  document.getElementById('miniTitle').textContent = `${MONTHS_RO[month].slice(0,3)} ${year}`;
 
   const grid = document.getElementById('miniGrid');
   // Remove old day cells (keep day name headers)
@@ -1102,7 +1102,7 @@ function renderMini() {
   const daysInMonth = new Date(year, month+1, 0).getDate();
   for (let i = 1; i <= daysInMonth; i++) {
     const d = document.createElement('div');
-    const ds = ⁠ ${year}-${String(month+1).padStart(2,'0')}-${String(i).padStart(2,'0')} ⁠;
+    const ds = `${year}-${String(month+1).padStart(2,'0')}-${String(i).padStart(2,'0')}`;
     d.className = 'mini-day' + (ds === todayStr ? ' today' : '');
     if (allEvDates.has(ds)) d.classList.add('has-event');
     d.textContent = i;
@@ -1139,7 +1139,7 @@ function renderCalendar() {
 function renderMonth() {
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
-  document.getElementById('currentPeriod').textContent = ⁠ ${MONTHS_RO[month]} ${year} ⁠;
+  document.getElementById('currentPeriod').textContent = `${MONTHS_RO[month]} ${year}`;
   document.getElementById('prevBtn').onclick = () => { currentDate.setMonth(month-1); renderCalendar(); };
   document.getElementById('nextBtn').onclick = () => { currentDate.setMonth(month+1); renderCalendar(); };
 
@@ -1147,7 +1147,7 @@ function renderMonth() {
   body.className = 'month-view';
 
   let html = '<div class="month-grid">';
-  DAYS_RO.forEach(d => { html += ⁠ <div class="day-header">${d}</div> ⁠; });
+  DAYS_RO.forEach(d => { html += `<div class="day-header">${d}</div>`; });
 
   const first = new Date(year, month, 1);
   let startDow = first.getDay();
@@ -1160,23 +1160,23 @@ function renderMonth() {
   const prevDays = new Date(year, month, 0).getDate();
   for (let i = startDow - 1; i >= 0; i--) {
     const day = prevDays - i;
-    const ds = ⁠ ${year}-${String(month).padStart(2,'0')}-${String(day).padStart(2,'0')} ⁠;
-    html += ⁠ <div class="day-cell other-month"><div class="day-number">${day}</div></div> ⁠;
+    const ds = `${year}-${String(month).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+    html += `<div class="day-cell other-month"><div class="day-number">${day}</div></div>`;
   }
 
   for (let d = 1; d <= daysInMonth; d++) {
-    const ds = ⁠ ${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')} ⁠;
+    const ds = `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
     const isToday = ds === todayStr;
     const isSel = ds === selectedStr;
     const evs = getEventsForDay(ds);
 
-    html += ⁠ <div class="day-cell${isToday?' today':''}${isSel?' selected':''}" onclick="selectDay('${ds}')"> ⁠;
-    html += ⁠ <div class="day-number">${d}</div> ⁠;
+    html += `<div class="day-cell${isToday?' today':''}${isSel?' selected':''}" onclick="selectDay('${ds}')">`;
+    html += `<div class="day-number">${d}</div>`;
     evs.slice(0, 3).forEach(e => {
       const color = CAT_COLORS[e.cat] || '#888';
-      html += ⁠ <div class="event-pill" style="background:${color}" onclick="showDetail(event,'${e.id}')" title="${e.title}">${e.title}</div> ⁠;
+      html += `<div class="event-pill" style="background:${color}" onclick="showDetail(event,'${e.id}')" title="${e.title}">${e.title}</div>`;
     });
-    if (evs.length > 3) html += ⁠ <div style="font-size:10px;color:var(--ink-muted);padding:1px 4px">+${evs.length-3} mai multe</div> ⁠;
+    if (evs.length > 3) html += `<div style="font-size:10px;color:var(--ink-muted);padding:1px 4px">+${evs.length-3} mai multe</div>`;
     html += '</div>';
   }
 
@@ -1184,7 +1184,7 @@ function renderMonth() {
   const totalCells = startDow + daysInMonth;
   const remaining = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
   for (let d = 1; d <= remaining; d++) {
-    html += ⁠ <div class="day-cell other-month"><div class="day-number">${d}</div></div> ⁠;
+    html += `<div class="day-cell other-month"><div class="day-number">${d}</div></div>`;
   }
 
   html += '</div>';
@@ -1206,9 +1206,9 @@ function renderWeek() {
   const sunday = new Date(monday);
   sunday.setDate(sunday.getDate() + 6);
 
-  const mStr = ⁠ ${monday.getDate()} ${MONTHS_RO[monday.getMonth()].slice(0,3)} ⁠;
-  const sStr = ⁠ ${sunday.getDate()} ${MONTHS_RO[sunday.getMonth()].slice(0,3)} ${sunday.getFullYear()} ⁠;
-  document.getElementById('currentPeriod').textContent = ⁠ ${mStr} – ${sStr} ⁠;
+  const mStr = `${monday.getDate()} ${MONTHS_RO[monday.getMonth()].slice(0,3)}`;
+  const sStr = `${sunday.getDate()} ${MONTHS_RO[sunday.getMonth()].slice(0,3)} ${sunday.getFullYear()}`;
+  document.getElementById('currentPeriod').textContent = `${mStr} – ${sStr}`;
 
   document.getElementById('prevBtn').onclick = () => { currentDate.setDate(currentDate.getDate()-7); renderCalendar(); };
   document.getElementById('nextBtn').onclick = () => { currentDate.setDate(currentDate.getDate()+7); renderCalendar(); };
@@ -1236,15 +1236,15 @@ function renderWeek() {
     const ds = dateStr(d);
     const isToday = ds === todayStr;
     const numHtml = isToday
-      ? ⁠ <div class="week-day-num today-num">${d.getDate()}</div> ⁠
-      : ⁠ <div class="week-day-num">${d.getDate()}</div> ⁠;
-    html += ⁠ <div class="week-day-header"><div class="week-day-name">${DAYS_RO[i]}</div>${numHtml}</div> ⁠;
+      ? `<div class="week-day-num today-num">${d.getDate()}</div>`
+      : `<div class="week-day-num">${d.getDate()}</div>`;
+    html += `<div class="week-day-header"><div class="week-day-name">${DAYS_RO[i]}</div>${numHtml}</div>`;
   });
 
   // Time slots
   hours.forEach(h => {
-    const label = h === 0 ? '' : ⁠ ${String(h).padStart(2,'0')}:00 ⁠;
-    html += ⁠ <div class="time-col"><div class="time-slot">${label}</div></div> ⁠;
+    const label = h === 0 ? '' : `${String(h).padStart(2,'0')}:00`;
+    html += `<div class="time-col"><div class="time-slot">${label}</div></div>`;
     days.forEach((d, di) => {
       if (h === 0) return; // handled separately
     });
@@ -1254,9 +1254,9 @@ function renderWeek() {
   days.forEach((d, di) => {
     const ds = dateStr(d);
     const evs = getEventsForDay(ds).filter(e => !e.allDay && e.startTime);
-    html += ⁠ <div class="week-day-col" style="grid-column:${di+2};grid-row:2/${hours.length+2}"> ⁠;
+    html += `<div class="week-day-col" style="grid-column:${di+2};grid-row:2/${hours.length+2}">`;
     hours.forEach(h => {
-      html += ⁠ <div class="week-hour-line"></div> ⁠;
+      html += `<div class="week-hour-line"></div>`;
     });
     evs.forEach(e => {
       const [sh,sm] = e.startTime.split(':').map(Number);
@@ -1324,17 +1324,17 @@ function showDetail(e, id) {
     <div class="detail-title">${ev.title}</div>
     <div class="detail-meta">
       <span>📅 ${ev.start}${ev.end && ev.end !== ev.start ? ' → ' + ev.end : ''}</span>
-      ${ev.startTime ? ⁠ <span>🕐 ${ev.startTime}${ev.endTime ? ' – ' + ev.endTime : ''}</span> ⁠ : ''}
+      ${ev.startTime ? `<span>🕐 ${ev.startTime}${ev.endTime ? ' – ' + ev.endTime : ''}</span>` : ''}
     </div>
   `;
   if (ev.desc || ev.event_description) {
     const desc = ev.desc || ev.event_description || '';
     const short = desc.length > 200 ? desc.slice(0, 200) + '…' : desc;
-    html += ⁠ <div class="detail-desc">${short.replace(/\n/g,'<br>')}</div> ⁠;
+    html += `<div class="detail-desc">${short.replace(/\n/g,'<br>')}</div>`;
   }
   html += `<div class="detail-actions">
     <button class="detail-btn" onclick="closeModal('detailModal')">Închide</button>
-    ${ev.cat !== 'google' ? ⁠ <button class="detail-btn primary" onclick="deleteEvent('${ev.id}')">Șterge</button> ⁠ : ''}
+    ${ev.cat !== 'google' ? `<button class="detail-btn primary" onclick="deleteEvent('${ev.id}')">Șterge</button>` : ''}
   </div>`;
   document.getElementById('detailContent').innerHTML = html;
   document.getElementById('detailModal').classList.add('open');
@@ -1368,7 +1368,7 @@ function openJournal(tab) {
   panel.classList.add('open');
   updateJournalTab();
   const today = new Date();
-  document.getElementById('journalPanelDate').textContent = ⁠ ${today.getDate()} ${MONTHS_RO[today.getMonth()]} ${today.getFullYear()} ⁠;
+  document.getElementById('journalPanelDate').textContent = `${today.getDate()} ${MONTHS_RO[today.getMonth()]} ${today.getFullYear()}`;
 }
 
 function closeJournal() {
@@ -1386,7 +1386,7 @@ function updateJournalTab() {
   document.getElementById('tab-reflections').classList.toggle('active', currentJournalTab === 'reflections');
   document.getElementById('journalPanelTitle').textContent = currentJournalTab === 'notes' ? 'Notițe zilnice' : 'Reflecții';
 
-  const key = ⁠ ${dateStr(new Date())}_${currentJournalTab} ⁠;
+  const key = `${dateStr(new Date())}_${currentJournalTab}`;
   const text = journalData[key] || '';
   document.getElementById('journalText').value = text;
   updateWordCount();
@@ -1399,13 +1399,13 @@ function updateJournalTab() {
 function updateWordCount() {
   const text = document.getElementById('journalText').value;
   const words = text.trim() ? text.trim().split(/\s+/).length : 0;
-  document.getElementById('wordCount').textContent = ⁠ ${words} cuvinte ⁠;
+  document.getElementById('wordCount').textContent = `${words} cuvinte`;
 }
 
 document.getElementById('journalText').addEventListener('input', updateWordCount);
 
 function saveJournalSilent() {
-  const key = ⁠ ${dateStr(new Date())}_${currentJournalTab} ⁠;
+  const key = `${dateStr(new Date())}_${currentJournalTab}`;
   journalData[key] = document.getElementById('journalText').value;
   localStorage.setItem('emilia_journal', JSON.stringify(journalData));
 }
